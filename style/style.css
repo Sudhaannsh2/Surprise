@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "LXGWWenKai";
+  src: url("../fonts/LXGWWenKai-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -6,6 +13,8 @@ body {
   margin: 0;
   height: 100vh;
   width: 100vw;
+  font-family: "LXGWWenKai", "Arial", sans-serif;
+  color: #333;
 }
 
 canvas {
@@ -50,6 +59,14 @@ canvas {
 
 .one {
   font-size: 4.5rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .one > img {
@@ -61,20 +78,38 @@ canvas {
 
 .two {
   font-size: 1.2rem;
-  font-weight: lighter;
+  font-weight: 400;
+  color: #2c3e50;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
 }
 
 .three {
   font-size: 3rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .four .text-box {
   width: 600px;
   margin: 0 auto;
-  border: 3px solid #aaa;
-  border-radius: 5px;
-  padding: 10px;
+  border: 3px solid #ddd;
+  border-radius: 15px;
+  padding: 20px;
   position: relative;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 .text-box p {
@@ -91,7 +126,7 @@ canvas {
   right: 5px;
   bottom: 2px;
   color: #fff;
-  background-color: #03C160;
+  background-color: #03c160;
   padding: 8px 16px;
   border-radius: 8px;
 }
@@ -101,6 +136,9 @@ canvas {
   position: absolute;
   left: 0;
   right: 0;
+  font-weight: 500;
+  color: #444;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .idea-3 strong {
@@ -111,6 +149,12 @@ canvas {
 
 .five .idea-5 {
   font-size: 4rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .idea-5 span,
@@ -121,6 +165,14 @@ canvas {
 
 .idea-6 span {
   font-size: 15rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 .six {
@@ -129,14 +181,15 @@ canvas {
 
 .six img {
   display: inline-block;
-  max-width: 100%;
+  max-width: 60%;
   height: auto;
+  margin-top: 10vh;
 }
 
 .six .hat {
   position: absolute;
   width: 80px;
-  top: -70px;
+  top: -50px;
   left: 49%;
   /* 等比例扩大图片到2倍 */
   transform: scale(1.1);
@@ -226,17 +279,30 @@ canvas {
   font-size: 3em;
   margin: 0;
   text-transform: uppercase;
+  font-weight: bold;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+  letter-spacing: 2px;
 }
 
 .wish h5 {
-  font-weight: lighter;
+  font-weight: 300;
   font-size: 2rem;
   margin: 10px 0 0;
+  color: #666;
+  letter-spacing: 0.5px;
+  font-style: italic;
 }
 
 .nine p {
   font-size: 2rem;
-  font-weight: lighter;
+  font-weight: 300;
+  color: #555;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
 }
 
 #replay {
@@ -309,6 +375,18 @@ canvas {
     font-weight: lighter;
   }
 }
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 @keyframes rotate {
   from {
     transform: rotate(0deg);
@@ -323,7 +401,7 @@ canvas {
   height: 50px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url('../img/play.svg');
+  background-image: url("../img/play.svg");
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -336,7 +414,7 @@ canvas {
 }
 
 .play-pause.playing {
-  background-image: url('../img/pause.svg');
+  background-image: url("../img/pause.svg");
   animation: rotate 2s linear infinite;
 }
 
@@ -351,13 +429,22 @@ canvas {
 
 .startSign .button {
   padding: 1rem 1.6rem;
-  border: 1px solid #03C160;
-  border-radius: 5px;
+  border: 2px solid #03c160;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #03c160, #00a854);
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(3, 193, 96, 0.3);
+  transition: all 0.3s ease;
 }
 
 .startSign .button:hover {
-  background-color: #03C160;
+  background: linear-gradient(135deg, #00a854, #03c160);
   color: #fff;
   padding: 1rem 1.6rem;
   cursor: pointer;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(3, 193, 96, 0.4);
 }
