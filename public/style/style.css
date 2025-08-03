@@ -187,7 +187,6 @@ canvas {
   height: auto;
   margin-top: 10vh;
 }
-
 .six .hat {
   position: absolute;
   width: 80px;
@@ -196,7 +195,6 @@ canvas {
   /* 等比例扩大图片到2倍 */
   transform: scale(1.1);
 }
-
 .baloons img {
   display: inline-block;
   position: absolute;
@@ -277,7 +275,7 @@ canvas {
   fill: #9a90da;
 }
 
-.wish-hbd {
+/* .wish-hbd {
   font-size: 3em;
   margin: 0;
   text-transform: uppercase;
@@ -288,7 +286,24 @@ canvas {
   background-clip: text;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
   letter-spacing: 2px;
+} */
+
+.wish-hbd {
+  font-size: 3em;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+  letter-spacing: 2px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
+
 
 .wish h5 {
   font-weight: 300;
@@ -449,4 +464,4 @@ canvas {
   cursor: pointer;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(3, 193, 96, 0.4);
-}
+} 

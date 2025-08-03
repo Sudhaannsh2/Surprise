@@ -348,4 +348,4 @@ function togglePlay(play) {
   isPlaying = play
   play ? audio.play() : audio.pause()
   playPauseButton.classList.toggle('playing', play)
-}
+} 

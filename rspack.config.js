@@ -1,12 +1,12 @@
 module.exports = {
   context: __dirname,
-  entry: './script/main.js',
+  entry: './public/script/main.js',
   devServer: {
     port: 1113,
     open: true,
     hot: true,
     static: {
-      directory: './'
+      directory: './public'
     }
   },
   output: {
@@ -14,7 +14,7 @@ module.exports = {
   },
   builtins: {
     html: [{
-      template: './index.html',
+      template: './public/index.html',
       inject: true
     }]
   }
