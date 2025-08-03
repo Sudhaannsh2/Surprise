@@ -29,7 +29,7 @@ canvas {
 
 .container {
   height: 100vh;
-  width: 100vh;
+  width: 100vw;
   margin: 0 auto;
   text-align: center;
   visibility: hidden;
@@ -304,7 +304,6 @@ canvas {
   transform: translateZ(0);
 }
 
-
 .wish h5 {
   font-weight: 300;
   font-size: 2rem;
@@ -354,11 +353,25 @@ canvas {
 
 @media screen and (max-width: 500px) {
   .container {
-    width: 90%;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .one {
+    font-size: 3rem;
+  }
+
+  .two {
+    font-size: 1rem;
+  }
+
+  .three {
+    font-size: 2rem;
   }
 
   .four .text-box {
     width: 90%;
+    padding: 15px;
   }
 
   .text-box .fake-btn {
@@ -366,12 +379,16 @@ canvas {
     bottom: -48px;
   }
 
+  .five p {
+    font-size: 1.5rem;
+  }
+
   .idea-5 span {
     display: block;
   }
 
   .idea-6 span {
-    font-size: 10rem;
+    font-size: 8rem;
   }
 
   .six .hat {
@@ -390,6 +407,46 @@ canvas {
   .nine p {
     font-size: 1.5rem;
     font-weight: lighter;
+  }
+
+  .play-pause {
+    width: 40px;
+    height: 40px;
+    right: 3vw;
+    top: 3vh;
+  }
+
+  .startSign {
+    margin: 15vh 3vw;
+  }
+
+  .startSign .button {
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+  }
+}
+
+/* Additional mobile optimizations */
+@media screen and (max-width: 768px) {
+  .one {
+    font-size: 3.5rem;
+  }
+
+  .idea-6 span {
+    font-size: 12rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .startSign .button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .play-pause {
+    min-height: 44px;
+    min-width: 44px;
   }
 }
 @keyframes gradientShift {
@@ -464,4 +521,4 @@ canvas {
   cursor: pointer;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(3, 193, 96, 0.4);
-} 
+}

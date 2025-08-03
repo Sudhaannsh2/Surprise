@@ -90,16 +90,30 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
-// 监听点击事件
-document.addEventListener("click", (e) => {
+// 监听点击和触摸事件
+const handleFirework = (e) => {
   const rect = canvas.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
+  let x, y;
+
+  if (e.type === "touchstart" || e.type === "touchend") {
+    const touch = e.touches[0] || e.changedTouches[0];
+    x = touch.clientX - rect.left;
+    y = touch.clientY - rect.top;
+  } else {
+    x = e.clientX - rect.left;
+    y = e.clientY - rect.top;
+  }
+
   fireworks.push(new Firework(x, y, 30)); // 30 表示粒子数量，可调整烟花大小
+};
+
+document.addEventListener("click", handleFirework);
+document.addEventListener("touchend", (e) => {
+  e.preventDefault();
+  handleFirework(e);
 });
 
 animate();
-
 
 /*
 below six.img
