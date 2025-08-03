@@ -183,10 +183,11 @@ canvas {
 
 .six img {
   display: inline-block;
-  max-width: 60%;
-  height: auto;
-  margin-top: 10vh;
+  /* max-width: 60%; */
+  height: 400px;
+  margin-top: 8vh;
 }
+
 .six .hat {
   position: absolute;
   width: 80px;

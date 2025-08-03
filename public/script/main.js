@@ -37,12 +37,10 @@ const fetchData = () => {
         // Check if the iteration is over
         // Run amimation if so
         if (dataArr.length === dataArr.indexOf(customData) + 1) {
-          document
-            .querySelector("#startButton")
-            .addEventListener("click", () => {
-              document.querySelector(".startSign").style.display = "none";
-              animationTimeline();
-            });
+          // Set up event listeners after data is loaded
+          setTimeout(() => {
+            setupEventListeners();
+          }, 100);
           // animationTimeline()
         }
       });
@@ -326,24 +324,21 @@ const animationTimeline = () => {
   });
 };
 
-// Mobile optimization: Wait for DOM to be fully loaded
-document.addEventListener("DOMContentLoaded", () => {
+// Wait for DOM to be fully loaded before running
+const initializeApp = () => {
   // Run fetch and animation in sequence
   fetchData();
-});
+};
 
-// Fallback for older browsers
+// Mobile optimization: Wait for DOM to be fully loaded
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", fetchData);
+  document.addEventListener("DOMContentLoaded", initializeApp);
 } else {
-  fetchData();
+  // DOM is already loaded
+  initializeApp();
 }
 
-const playPauseButton = document.getElementById("playPauseButton");
-
 // Mobile-friendly event listeners
-const startButton = document.getElementById("startButton");
-const playPauseButton = document.getElementById("playPauseButton");
 
 // Add both click and touch events for better mobile support
 const addMobileEventListeners = (element, handler) => {
@@ -354,17 +349,33 @@ const addMobileEventListeners = (element, handler) => {
   });
 };
 
-addMobileEventListeners(startButton, () => {
-  if (audio) {
-    togglePlay(true);
-  }
-});
+// Setup all event listeners
+const setupEventListeners = () => {
+  const startButton = document.getElementById("startButton");
+  const playPauseButton = document.getElementById("playPauseButton");
 
-addMobileEventListeners(playPauseButton, () => {
-  if (audio) {
-    togglePlay(!isPlaying);
+  if (!startButton || !playPauseButton) {
+    console.error("Buttons not found, retrying...");
+    setTimeout(setupEventListeners, 100);
+    return;
   }
-});
+
+  // Start button event listeners
+  addMobileEventListeners(startButton, () => {
+    document.querySelector(".startSign").style.display = "none";
+    animationTimeline();
+    if (audio) {
+      togglePlay(true);
+    }
+  });
+
+  // Play/pause button event listeners
+  addMobileEventListeners(playPauseButton, () => {
+    if (audio) {
+      togglePlay(!isPlaying);
+    }
+  });
+};
 
 function togglePlay(play) {
   if (!audio) return;
